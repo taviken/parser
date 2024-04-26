@@ -1,13 +1,13 @@
 from dataclasses import dataclass
-from typing import List, Dict
+from typing import List, Dict, Optional
 from ._constants import _operators
 
 
 @dataclass
 class Lexicon:
-    keywords: List[str]
-    operators: Dict[str, str]
-    comments: Dict[str, str]
+    keywords: Optional[List[str]] = None
+    operators: Optional[Dict[str, str]] = None
+    comments: Optional[Dict[str, str]] = None
 
 
 default_lexicon = Lexicon(

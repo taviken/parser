@@ -99,7 +99,7 @@ class Lexer:
         )
 
         comment = (
-            named_group("COMMENT", group(*list(lexicon.comments.values())))
+            named_group("comment", group(*list(lexicon.comments.values())))
             if lexicon.comments
             else None
         )
@@ -109,8 +109,7 @@ class Lexer:
             group(r"'[^\n'\\]*(?:\\.[^\n'\\]*)*'", r'"[^\n"\\]*(?:\\.[^\n"\\]*)*"'),
         )
 
-        operators = group(*map(re.escape, sorted(lexicon.operators, reverse=True)))
-        operators = named_group("operators", operators)
+        operators = named_group("operators", lexicon.operators)
 
         parts = (
             comment,
@@ -133,5 +132,5 @@ class Lexer:
                 msg = f"Failed to compile pattern: {part}"
                 raise LexicalError(msg)
 
-        pattern = _compile("|".join(tuple(parts)))
+        pattern = _compile("|".join(tuple(_parts)))
         return pattern
