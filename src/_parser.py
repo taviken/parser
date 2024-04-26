@@ -1,28 +1,10 @@
-from ._lexer import Lexer, Lexicon, default_lexicon, TokenSet, Token
 from dataclasses import dataclass
-from typing import List, Optional, Any, Union
+from typing import List, Any, Union
 from functools import wraps
 from tokenize import ENDMARKER, NAME, NEWLINE, STRING
 
 
-def memoize(func):
-    # @wraps
-    def memoize_wrapper(self, *args):
-        pos = self.mark()
-        memo = self.memos.get(pos)
-        if memo is None:
-            memo = self.memos[pos] = {}
-        key = (func, args)
-        if key in memo:
-            res, endpos = memo[key]
-            self.reset(endpos)
-        else:
-            res = func(self, *args)
-            endpos = self.mark()
-            memo[key] = res, endpos
-        return res
 
-    return memoize_wrapper
 
 
 @dataclass
@@ -52,7 +34,6 @@ class Parser:
     def reset(self, pos):
         self.tokenset.reset(pos)
 
-    @memoize
     def expect(self, arg):
         token = self.tokenset.peek_token()
         if token.kind == arg or token.text == arg:

@@ -1,9 +1,8 @@
 from typing import List, Union, Optional
-from _lexicon import Lexicon
+from ._lexicon import Lexicon
 from pathlib import Path
 import re
 import io
-from sre_parse import error as sre_pare_error
 from ._tokens import Token, TokenSet
 
 
@@ -130,7 +129,7 @@ class Lexer:
         for part in _parts:
             try:
                 _compile(part)
-            except sre_pare_error:
+            except:
                 msg = f"Failed to compile pattern: {part}"
                 raise LexicalError(msg)
 

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import List, Dict
-from _constants import _operators
+from ._constants import _operators
 
 
 @dataclass

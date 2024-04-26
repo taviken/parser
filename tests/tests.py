@@ -1,5 +1,5 @@
 import pytest
-from peg_parser import Lexer, Token, Lexicon, GrammarParser, Rule, default_lexicon
+from src import Lexer, Token, Lexicon, GrammarParser, Rule, default_lexicon
 
 ENDMARKER = "ENDMARKER"
 STRING = "STRING"
