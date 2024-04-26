@@ -1,8 +1,8 @@
 def cacheit(func):
     func_name = func.__name__
-    
+
     def memoize_wrapper(self, *args):
-        key = func_name,args
+        key = func_name, args
         pos = self.mark()
         memo = self.memos.get(pos)
         if memo is None:
@@ -16,5 +16,6 @@ def cacheit(func):
             endpos = self.mark()
             memo[key] = res, endpos
         return res
-    memoize_wrapper = func_name
+
+    memoize_wrapper.__name__ = func_name
     return memoize_wrapper

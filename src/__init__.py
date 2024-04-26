@@ -1,6 +1,6 @@
 from ._constants import EXACT_TOKEN_TYPES, GRAPHIC_CHARS
 from ._lexer import Lexer
-from ._lexicon import Lexicon,default_lexicon
+from ._lexicon import Lexicon, default_lexicon
 from ._parser import Parser, GrammarParser, Rule
 from ._tokens import Token, TokenSet
 from ._node import Node

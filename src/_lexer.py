@@ -129,7 +129,7 @@ class Lexer:
         for part in _parts:
             try:
                 _compile(part)
-            except:
+            except re.error:
                 msg = f"Failed to compile pattern: {part}"
                 raise LexicalError(msg)
 

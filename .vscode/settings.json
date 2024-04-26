@@ -1,0 +1,16 @@
+{
+    "editor.formatOnSave": true,
+    "pylint.interpreter": [
+        "python"
+    ],
+    "pylint.path": [
+        "flake8"
+    ],
+    "flake8.args": [
+        "--max-line-length=120",
+        "--ignore=E203"
+    ],
+    "files.exclude": {
+        "**/.pyc": true
+    }
+}

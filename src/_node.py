@@ -10,13 +10,14 @@ def _find_value_bfs(node: N, value: Any) -> Optional[N]:
         children = node.children.copy()
     else:
         return
-    
+
     while children:
         child = children.popleft()
         if child.value == value:
             return child
         if child.children:
             _find_value_bfs(child, value)
+
 
 @dataclass
 class Node:
