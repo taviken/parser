@@ -1,0 +1,1 @@
+antlr4 -Dlanguage=Python3 ..\grammars\IDL.g4 -visitor -listener

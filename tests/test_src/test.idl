@@ -1,0 +1,7 @@
+module foo {
+    typedef short bar;
+    struct baz {
+        long a;
+        float b;
+    };
+};
