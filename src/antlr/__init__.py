@@ -21,7 +21,8 @@ from antlr4 import *
 from .IDLLexer import IDLLexer
 from .IDLParser import IDLParser
 
-# from VisitorInterp import VisitorInerp
+from IDLVisitor import IDLVisitor
+from IDLListener import IDLListener
 
 
 def parse_idl(path: Path):
